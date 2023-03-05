@@ -66,6 +66,8 @@ jobs:
         if: github.event_name == 'pull_request'
         env:
           TF_VAR_apps: ${{ vars.APPLICATIONS }}
+          TF_VAR_company: ${{ vars.COMPANY }}
+          TF_VAR_main_domain: ${{ vars.MAIN_DOMAIN }}
         run: |
           terraform plan -no-color -input=false
         continue-on-error: true

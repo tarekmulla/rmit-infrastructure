@@ -54,3 +54,5 @@ jobs:
         run: terraform apply -auto-approve -input=false
         env:
           TF_VAR_apps: ${{ vars.APPLICATIONS }}
+          TF_VAR_company: ${{ vars.COMPANY }}
+          TF_VAR_main_domain: ${{ vars.MAIN_DOMAIN }}

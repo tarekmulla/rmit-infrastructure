@@ -40,9 +40,9 @@ resource "aws_ssm_parameter" "api_endpoint" {
   tags  = var.tags
 }
 
-resource "aws_ssm_parameter" "certificate_arn" {
-  name  = "/${var.app}/certificate_arn"
+resource "aws_ssm_parameter" "zone_id" {
+  name  = "/${var.app}/zone_id"
   type  = "String"
-  value = var.certificate_arn
+  value = var.zone_id
   tags  = var.tags
 }
