@@ -6,13 +6,16 @@ This repo contains all shared AWS resources between RMIT projects.
 
 The project builds two types of resources:
 1. All shared resources between RMIT projects, those resources include:
-   * VPC Network
+   * VPC Network, and subnets
    * NAT Gateway
    * DynamoDB statelock table
 
-2. The project takes a list of project names, and create all required base resources for each application, the base resources include:
+2. All required base resources for each application, the base resources include:
    * VPC Subnets
    * ECR repository
+   * SSM parameters
+   * Certificates
+   * DNS records in route53
 
 ## Remote state ##
 

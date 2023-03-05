@@ -38,7 +38,7 @@ variable "api_endpoint" {
   description = "The api endpoint"
 }
 
-variable "certificate_arn" {
+variable "zone_id" {
   type        = string
-  description = "The arn for the acm certificate for the app domain"
+  description = "The main hosted route53 zone id"
 }

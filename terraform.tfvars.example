@@ -1,4 +1,14 @@
 region  = "ap-southeast-2"
-apps    = ["app1", "app2"]
-company = "rmit"
 tags    = {}
+company     = "company_name"
+main_domain = "company_domain.au"
+apps = {
+  app1 : {
+    website-domain : "app1.company_domain.au",
+    api-endpoint : "app1-api.company_domain.au"
+  },
+  app2 : {
+    website-domain : "app2.company_domain.au",
+    api-endpoint : "app2-api.company_domain.au"
+  }
+}

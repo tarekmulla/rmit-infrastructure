@@ -2,6 +2,12 @@ provider "aws" {
   region = var.region
 }
 
+module "dns" {
+  source      = "./modules/dns"
+  main_domain = var.main_domain
+  tags        = local.tags
+}
+
 # The network components (VPC, subnets, Internet gateway, etc..)
 module "network" {
   source              = "./modules/network"
@@ -33,6 +39,7 @@ module "certificate" {
   for_each    = toset(local.app_list)
   source      = "./modules/certificate"
   domain_name = var.apps[each.key]["website-domain"]
+  zone_id     = module.dns.zone_id
   SAN_domains = ["*.${var.apps[each.key]["website-domain"]}", var.apps[each.key]["api-endpoint"]]
   tags        = merge({ Application = each.key }, var.tags)
 }
@@ -48,6 +55,6 @@ module "parameters" {
   vpc_private_subnets = slice(module.network.vpc_private_subnets, index(local.app_list, each.key) * 3, index(local.app_list, each.key) * 3 + 3)
   website_domain      = var.apps[each.key]["website-domain"]
   api_endpoint        = var.apps[each.key]["api-endpoint"]
-  certificate_arn     = module.certificate[each.key].arn
+  zone_id             = module.dns.zone_id
   tags                = local.tags
 }
