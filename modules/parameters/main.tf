@@ -25,3 +25,24 @@ resource "aws_ssm_parameter" "vpc_private_subnets" {
   value = jsonencode(var.vpc_private_subnets)
   tags  = var.tags
 }
+
+resource "aws_ssm_parameter" "website_domain" {
+  name  = "/${var.app}/website_domain"
+  type  = "String"
+  value = var.website_domain
+  tags  = var.tags
+}
+
+resource "aws_ssm_parameter" "api_endpoint" {
+  name  = "/${var.app}/api_endpoint"
+  type  = "String"
+  value = var.api_endpoint
+  tags  = var.tags
+}
+
+resource "aws_ssm_parameter" "certificate_arn" {
+  name  = "/${var.app}/certificate_arn"
+  type  = "String"
+  value = var.certificate_arn
+  tags  = var.tags
+}
