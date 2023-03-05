@@ -1,8 +1,3 @@
-variable "region" {
-  type        = string
-  description = "The AWS region name where the resources will be provisioned"
-}
-
 variable "app" {
   type        = string
   description = "The application name"
