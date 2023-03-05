@@ -26,6 +26,17 @@ module "ecs_repo" {
   for_each = toset(var.apps)
   source   = "./modules/ecs_repo"
   app      = each.key
-  region   = var.region
   tags     = local.tags
+}
+
+# SSM parameters for each application
+module "parmaeters" {
+  for_each            = toset(var.apps)
+  source              = "./modules/parameters"
+  app                 = each.key
+  ecr_image           = module.ecs_repo[each.key].image_url
+  vpc_id              = module.network.vpc_id
+  vpc_public_subnets  = slice(module.network.vpc_public_subnets, index(var.apps, each.key) * 3, index(var.apps, each.key) * 3 + 3)
+  vpc_private_subnets = slice(module.network.vpc_private_subnets, index(var.apps, each.key) * 3, index(var.apps, each.key) * 3 + 3)
+  tags                = local.tags
 }
