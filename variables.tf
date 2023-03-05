@@ -5,7 +5,7 @@ variable "region" {
 }
 
 variable "apps" {
-  type        = list(string)
+  type        = map(any)
   description = "The list of applications"
 }
 

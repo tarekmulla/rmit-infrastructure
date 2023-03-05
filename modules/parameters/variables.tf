@@ -3,12 +3,9 @@ variable "app" {
   description = "The application name"
 }
 
-# A map of the extra tags to apply to aws resources.
-# there is already list of tags will be added by default, please check locals "tags"
 variable "tags" {
   description = "AWS Tags to add to all resources created (where possible)"
   type        = map(string)
-  default     = {}
 }
 
 variable "ecr_image" {
@@ -29,4 +26,19 @@ variable "vpc_public_subnets" {
 variable "vpc_private_subnets" {
   type        = list(string)
   description = "List of IDs of private subnets"
+}
+
+variable "website_domain" {
+  type        = string
+  description = "The domain name for the web application"
+}
+
+variable "api_endpoint" {
+  type        = string
+  description = "The api endpoint"
+}
+
+variable "certificate_arn" {
+  type        = string
+  description = "The arn for the acm certificate for the app domain"
 }
