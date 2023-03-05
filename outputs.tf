@@ -13,7 +13,7 @@ output "vpc_cidr" {
   value       = local.vpc_cidr
 }
 
-output "public_subnets" {
+output "vpc_subnets" {
   description = "All subnets created in the VPC"
   value       = [for i in range(0, length(var.apps)): {
     "application" : var.apps[i],
