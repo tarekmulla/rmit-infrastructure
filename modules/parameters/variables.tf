@@ -33,11 +33,6 @@ variable "website_domain" {
   description = "The domain name for the web application"
 }
 
-variable "api_endpoint" {
-  type        = string
-  description = "The api endpoint"
-}
-
 variable "zone_id" {
   type        = string
   description = "The main hosted route53 zone id"

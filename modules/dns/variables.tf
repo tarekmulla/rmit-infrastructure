@@ -1,9 +1,9 @@
-variable "tags" {
-  description = "AWS Tags to add to all resources created (where possible)"
-  type        = map(string)
+variable "domain" {
+  type        = string
+  description = "The main domain for the application"
 }
 
-variable "main_domain" {
+variable "parent_domain" {
   type        = string
   description = "The parent domain for all applications"
 }

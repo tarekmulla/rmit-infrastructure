@@ -33,13 +33,6 @@ resource "aws_ssm_parameter" "website_domain" {
   tags  = var.tags
 }
 
-resource "aws_ssm_parameter" "api_endpoint" {
-  name  = "/${var.app}/api_endpoint"
-  type  = "String"
-  value = var.api_endpoint
-  tags  = var.tags
-}
-
 resource "aws_ssm_parameter" "zone_id" {
   name  = "/${var.app}/zone_id"
   type  = "String"

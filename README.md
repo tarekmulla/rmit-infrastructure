@@ -2,6 +2,10 @@
 
 This repo contains all shared AWS resources between RMIT projects.
 
+## prerequisites ##
+
+You will need to have a route53 zone, with the parent domain for all applications, the route53 should be accessable online.
+
 ## How does it work ##
 
 The project builds two types of resources:
