@@ -39,3 +39,10 @@ resource "aws_ssm_parameter" "zone_id" {
   value = var.zone_id
   tags  = var.tags
 }
+
+resource "aws_ssm_parameter" "bucket_name" {
+  name  = "/${var.app}/bucket_name"
+  type  = "String"
+  value = var.bucket_name
+  tags  = var.tags
+}

@@ -37,3 +37,8 @@ variable "zone_id" {
   type        = string
   description = "The main hosted route53 zone id"
 }
+
+variable "bucket_name" {
+  type        = string
+  description = "The S3 bucket name"
+}

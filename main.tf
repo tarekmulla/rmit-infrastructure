@@ -94,5 +94,6 @@ module "parameters" {
   vpc_private_subnets = slice(module.network.vpc_private_subnets, index(local.app_list, each.key) * 3, index(local.app_list, each.key) * 3 + 3)
   website_domain      = var.apps[each.key]["website-domain"]
   zone_id             = module.dns[each.key].zone_id
+  bucket_name         = module.project_bucket[each.key].bucket_name
   tags                = local.tags
 }
