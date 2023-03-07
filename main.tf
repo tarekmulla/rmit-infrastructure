@@ -34,6 +34,15 @@ module "ecs_repo" {
   tags     = local.tags
 }
 
+# Project bucket
+module "project_bucket" {
+  for_each = toset(local.app_list)
+  source   = "./modules/bucket"
+  app      = each.key
+  company  = var.company
+  tags     = local.tags
+}
+
 # ------------------------------
 # Create route53 region, point to it in the parent domain, and create required certificates
 module "dns" {
